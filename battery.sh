@@ -10,7 +10,7 @@ warn_color="colour208"
 status=`pmset -g batt`
 percent=`echo $status | cut -d' ' -f7 | cut -d';' -f1`
 
-if [[ $percent < $warn_percent ]]
+if [ "$percent" \< "$warn_percent" ]
     then
         color="#[fg=$warn_color]"
     else
