@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source $HOME/.bashrc
+
 if [ -n $(pgrep adium) ]
 then
 osascript <<EOD
@@ -8,6 +10,14 @@ osascript <<EOD
     end tell
 EOD
 fi
+
+osascript <<EOD
+    tell application "System Events"
+        start current screen saver
+    end tell
+EOD
+
+now "taking lunch break"
 
 #TODO: 
 # Timer for tmux countdown
