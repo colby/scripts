@@ -3,7 +3,7 @@
 # To include the line below into your .tmux.conf to see battery % or charging icon.
 # set -g status-right "#(/Users/colbyolson/src/scripts/battery.sh) #H %H:%M"
 
-ok_color="colour236"
+ok_color="colour240"
 warn_percent="20"
 warn_color="colour208"
 
