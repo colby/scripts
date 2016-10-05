@@ -4,20 +4,20 @@
 # set -g status-right "#(/Users/colbyolson/src/scripts/battery.sh) #H %H:%M"
 
 ok_color="colour240"
-warn_percent="20"
-warn_color="colour208"
+warning="20"
+warning_color="colour208"
 
 status=$(pmset -g batt)
-percent=$(echo $status | cut -d' ' -f7 | cut -d'%' -f1)
+percent=$(pmset -g batt | grep -oE '[1-9]{1,3}%')
 
-if [[ "$percent" -lt "$warn_percent" ]]; then
-        color="#[fg=$warn_color]"
+if [[ "$percent" -lt "$warning" ]]; then
+        color="#[fg=$warning_color]"
     else
         color="#[fg=$ok_color]"
 fi
 
 if [[ $status == *Battery*Power* ]]; then
-        printf "%s%s%s" "$color" "$percent%" "#[default]"
+        printf "%s%s%s" "$color" "$percent" "#[default]"
     else
         printf "%s%s%s" "$color" "⚡" "#[default]"
 fi
