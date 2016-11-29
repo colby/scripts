@@ -12,7 +12,7 @@ function check {
 
 # check deps
 CUT=$(check cut)
-SED=$(check sed)
+SED=$(check gsed)
 GREP=$(check grep)
 CURL=$(check curl)
 
