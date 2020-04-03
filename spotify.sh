@@ -3,6 +3,11 @@
 # Include the line below into your .tmux.conf to see spotify information
 # set -g status-right "#(~/src/scripts/spotify.sh) #H %H:%M"
 
+platform=$(uname)
+if [[ $platform == 'Linux' ]]; then
+    exit
+fi
+
 color="colour240"
 
 if ps aux | grep '/[A]pplications/Spotify.app/Contents/MacOS/Spotify' > /dev/null

@@ -4,6 +4,12 @@
 # set -g status-right "#(/Users/colbyolson/src/scripts/battery.sh) #H %H:%M"
 
 # change color when battery level drops below $warning level
+
+platform=$(uname)
+if [[ $platform == 'Linux' ]]; then
+  exit
+fi
+
 warning=20
 
 ok_color="colour240"
