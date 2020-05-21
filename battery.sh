@@ -23,5 +23,5 @@ if [[ $status == *Battery*Power* ]]
 then
     printf "%s%s%s" "$color" "$percent" "#[default]"
 else
-    printf "%s%s%s" "$color" "⚡" "#[default]"
+    printf "%s%s%s" "$color" "☉ " "#[default]"
 fi
