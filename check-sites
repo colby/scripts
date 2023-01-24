@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -e
+
+environment=$1
+
+cat <<EOT > /tmp/urls.txt
+https://$environment.rejuvenation.com/?cm_type=gnav
+https://$environment.rejuvenation.com/shoppingcart/?cm_type=gnav&cm_sp=HeaderLinks-_-Checkout-_-MainSite
+https://$environment.rejuvenation.com/shop/bath/?cm_type=gnav
+https://$environment.rejuvenation.com/products/skyline-flatweave-rug/?pkey=s~rugs~74
+https://$environment.rejuvenation.com/search/results.html?words=rug
+https://$environment.rejuvenation.com/account/login.html
+https://$environment.rejuvenation.com/customer-service/order-shipment-tracking/?cm_type=fnav
+https://$environment.rejuvenation.com/favorites/?cm_sp=HeaderLinks-_-Favorites-_-MainSite
+EOT
+
+xargs -n 1 curl -m5 -s -o /dev/null -w "%{http_code} %{url_effective}\n" -L -u "ptqaenv:ta8PoLe" < /tmp/urls.txt
